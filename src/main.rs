@@ -24,7 +24,7 @@ use tokio::time::sleep;
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     dotenv().ok();
 
-    let desired_url = env::var("URL").expect("BASE_URL not found in .env file");
+    let desired_url = "https://www.rust-lang.org/";
 
     // Query the browser's debugging endpoint to get the list of targets
     let debug_url = "http://localhost:9222/json";
@@ -80,7 +80,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
        // Find the paragraph element
     let paragraph = page
-    .find_element("p.pl4-l.ma0-l.mt1.mb3")
+    .find_element("p.f3.lh-copy")
     .await
     .map_err(|e| format!("Failed to find the paragraph element: {}", e))?;
 
